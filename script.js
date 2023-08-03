@@ -85,5 +85,37 @@ function playRound(userChoice, cpuChoice)
     }
 }
 
+function game()
+{
+    let userScore = 0;
+    let cpuScore = 0;
 
+    for (let i = 0; i < 5; ++i)
+    {
+        switch (playRound(getUserChoice(), getComputerChoice()))
+        {
+            case 1:
+                ++userScore;
+                break;
+            case 2:
+                ++cpuScore;
+                break;
+        }
+        console.log(`Current score is -- User: ${userScore}, CPU: ${cpuScore}.`)
+    }
 
+    if (userScore > cpuScore)
+    {
+        console.log("User wins the game!");
+    }
+    else if (cpuScore > userScore)
+    {
+        console.log("CPU wins the game!");
+    }
+    else
+    {
+        console.log("The game is a draw!");
+    }
+}
+
+game();
