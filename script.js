@@ -34,3 +34,56 @@ function getUserChoice() {
     }
 }
 
+function playRound(userChoice, cpuChoice)
+{
+    if (userChoice == cpuChoice)
+    {
+        console.log("It's a draw!");
+        return 0;
+    }
+    else
+    {
+        switch (userChoice)
+        {
+            case "rock":
+                if (cpuChoice == "paper")
+                {
+                    console.log("CPU Wins!");
+                    return 2;
+                }
+                else
+                {
+                    console.log("User Wins!");
+                    return 1;
+                }
+                break;
+            case "paper":
+                if (cpuChoice == "scissors")
+                {
+                    console.log("CPU Wins!");
+                    return 2;
+                }
+                else
+                {
+                    console.log("User Wins!");
+                    return 1;
+                }
+                break;
+            case "scissors":
+                if (cpuChoice == "rock")
+                {
+                    console.log("CPU Wins!");
+                    return 2;
+                }
+                else
+                {
+                    console.log("User Wins!");
+                    return 1;
+                }
+                break;
+        }
+    }
+}
+
+
+
