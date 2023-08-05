@@ -46,6 +46,10 @@ footer > * {
 
 .gameMessage {
     align-items: center;
-    justify-content: center;
+}
+
+.gameMessage p {
+    margin: 0;
+    margin-block: 1%;
 }
 

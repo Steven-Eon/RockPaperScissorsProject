@@ -13,7 +13,7 @@ function initialize() {
         userChoice = choiceList[0];
         computerChoice = processCPUMove();
         roundWinner = playRound(userChoice, computerChoice);
-        displayMessage(roundWinner);
+        displayMessage(userChoice, computerChoice, roundWinner);
         processRound(roundWinner);
     });
     buttonPaper.addEventListener('click', (e) => {
@@ -21,7 +21,7 @@ function initialize() {
         userChoice = choiceList[1];
         computerChoice = processCPUMove();
         roundWinner = playRound(userChoice, computerChoice);
-        displayMessage(roundWinner);
+        displayMessage(userChoice, computerChoice, roundWinner);
         processRound(roundWinner);
     });
     buttonScissors.addEventListener('click', (e) => {
@@ -29,7 +29,7 @@ function initialize() {
         userChoice = choiceList[2];
         computerChoice = processCPUMove();
         roundWinner = playRound(userChoice, computerChoice);
-        displayMessage(roundWinner);
+        displayMessage(userChoice, computerChoice, roundWinner);
         processRound(roundWinner);
     });
 }
@@ -97,19 +97,55 @@ function processRound(results) {
     {
         return;
     }
+
     const score = document.querySelectorAll(".scoreSection > div > p");
     const scoreToModify = score[(results * 2) - 1]
-    scoreToModify.textContent = Number(scoreToModify.textContent) + 1;
+
+    if (Number(scoreToModify.textContent) + 1 > 2) {
+        score[1].textContent = '0';
+        score[3].textContent = '0';
+    }
+    else
+    {
+        scoreToModify.textContent = Number(scoreToModify.textContent) + 1;
+    }
 }
 
-function displayMessage(results) {
+function displayMessage(userChoice, computerChoice, results) {
     const gameMessage = document.querySelector(".gameMessage");
-    
+
     while (gameMessage.firstChild) {
         gameMessage.removeChild(gameMessage.firstChild);
     }
 
+    if (results != 0)
+    {
+        const score = document.querySelectorAll(".scoreSection > div > p");
+        const scoreToCheck = score[(results * 2) - 1];
+    
+        if (Number(scoreToCheck.textContent) + 1 > 2)
+        {
+            const winMessage = document.createElement('p');
+            if (results == 1)
+            {
+                winMessage.textContent = "User has won the game! Make another move to play again!";
+            }
+            else
+            {
+                winMessage.textContent = "CPU has won the game! Make another move to play again!";
+            }
+    
+            gameMessage.appendChild(winMessage);
+        }
+    }
+
     const displayMessage = document.createElement('p');
+    const userMessage = document.createElement('p');
+    const cpuMessage = document.createElement('p');
+
+    userMessage.textContent = `User chose ${userChoice}!`;
+    cpuMessage.textContent = `CPU chose ${computerChoice}!`;
+
     switch (results)
     {
         case 0:
@@ -129,6 +165,8 @@ function displayMessage(results) {
             break;
     }
 
+    gameMessage.appendChild(userMessage);
+    gameMessage.appendChild(cpuMessage);
     gameMessage.appendChild(displayMessage);
 }
 
