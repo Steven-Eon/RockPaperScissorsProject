@@ -2,6 +2,19 @@ body {
     background-color: gray;
 }
 
+footer {
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer > * {
+    margin-inline: 1%;
+}
+
+
 .flexRow {
     display: flex;
     flex: auto;
@@ -12,6 +25,10 @@ body {
     display: flex;
     flex: auto;
     flex-direction: column;
+}
+
+.centerText {
+    text-align: center;
 }
 
 .scoreSection p {
@@ -31,3 +48,4 @@ body {
     align-items: center;
     justify-content: center;
 }
+
