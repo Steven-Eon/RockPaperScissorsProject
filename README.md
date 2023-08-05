@@ -11,7 +11,7 @@
 - [ ] HTML/CSS In-Game Interface. **(IN PROGRESS)**
   - [x] CPU Move Selector.
   - [x] Player Move Selector.
-  - [ ] Game Logic.
-  - [ ] Gameplay.
+  - [x] Game Logic.
+  - [x] Gameplay.
+  - [ ] CSS Style Rules.
   - [ ] Test.
-
