@@ -13,6 +13,7 @@ function initialize() {
         userChoice = choiceList[0];
         computerChoice = processCPUMove();
         roundWinner = playRound(userChoice, computerChoice);
+        displayMessage(roundWinner);
         processRound(roundWinner);
     });
     buttonPaper.addEventListener('click', (e) => {
@@ -20,6 +21,7 @@ function initialize() {
         userChoice = choiceList[1];
         computerChoice = processCPUMove();
         roundWinner = playRound(userChoice, computerChoice);
+        displayMessage(roundWinner);
         processRound(roundWinner);
     });
     buttonScissors.addEventListener('click', (e) => {
@@ -27,6 +29,7 @@ function initialize() {
         userChoice = choiceList[2];
         computerChoice = processCPUMove();
         roundWinner = playRound(userChoice, computerChoice);
+        displayMessage(roundWinner);
         processRound(roundWinner);
     });
 }
@@ -96,7 +99,37 @@ function processRound(results) {
     }
     const score = document.querySelectorAll(".scoreSection > div > p");
     const scoreToModify = score[(results * 2) - 1]
-    scoreToModify.textContent = scoreToModify.textContent + 1;
+    scoreToModify.textContent = Number(scoreToModify.textContent) + 1;
+}
+
+function displayMessage(results) {
+    const gameMessage = document.querySelector(".gameMessage");
+    
+    while (gameMessage.firstChild) {
+        gameMessage.removeChild(gameMessage.firstChild);
+    }
+
+    const displayMessage = document.createElement('p');
+    switch (results)
+    {
+        case 0:
+            displayMessage.textContent = "It's a draw.";
+            break;
+
+        case 1:
+            displayMessage.textContent = "User wins!";
+            break;
+        
+        case 2:
+            displayMessage.textContent = "CPU wins!";
+            break;
+
+        default:
+            displayMessage.textContent = "An error has occurred, please contact the developer with the issue RESULTSNOTFOUND.";
+            break;
+    }
+
+    gameMessage.appendChild(displayMessage);
 }
 
 initialize()

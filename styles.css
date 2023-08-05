@@ -26,3 +26,8 @@ body {
 .userButtonSel button {
     margin-inline: 2vw;
 }
+
+.gameMessage {
+    align-items: center;
+    justify-content: center;
+}
