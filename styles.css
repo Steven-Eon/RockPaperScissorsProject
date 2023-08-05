@@ -1,0 +1,28 @@
+body {
+    background-color: gray;
+}
+
+.flexRow {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+}
+
+.flexColumn {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+.scoreSection p {
+    text-align: center;
+}
+
+.userButtonSel {
+    justify-content: center;
+    align-items: center;
+}
+
+.userButtonSel button {
+    margin-inline: 2vw;
+}
